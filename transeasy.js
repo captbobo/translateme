@@ -27,3 +27,9 @@ function Task(elem) {
     document.getElementById('edit_'+this.id).innerText = target
   }
 }
+
+const tasks = tableRows.map( elem => {
+  const task = new Task(elem)
+  task.setTargetText()
+  return task
+});
