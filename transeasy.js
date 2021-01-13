@@ -17,3 +17,13 @@ const getComment = (elem) => {
   return ((comment && comment.nodeValue) && comment.nodeValue[0] !== " ") ?
     comment.nodeValue : undefined;
 }
+
+function Task(elem) {
+  this.id = getID(elem),
+  this.sourceText = getSource(this.id),
+  this.pre = getPreviousTranslation(elem)
+  this.comment = getComment(elem),
+  this.setTargetText = (target = this.comment || this.pre) => {
+    document.getElementById('edit_'+this.id).innerText = target
+  }
+}
